@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SS | Calculations</title>
+  </head>
+  <style>
+  .div {
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+  }
+  </style>
+  <script src="script.js"></script>
+  <body style="text-align: center;">
+    <div id="access" style="display: none">
+      <div class="div">
+        <span>Cheese and Butter Making</span> <br>
+        <button onclick="cow()">
+          <input id="cow-amount" type="number" placeholder="# of Cows"/>
+          <input id="cow-children" type="number" placeholder="# of Children"/>
+          <input id="cow-output" placeholder="Output" readonly/> <br>
+          <input id="cow-butter" type="checkbox">Butter</input>
+          <input id="cow-cheese" type="checkbox">Cheese</input>
+        </button> <br><br>
+          <span>Sheep</span> <br>
+          <button onclick="sheep()">
+          <input id="sheep-amount" type="number" placeholder="# of Sheep"/>
+          <input id="sheep-output" placeholder="Output" readonly/>
+        </button> <br><br>
+        <span>Bees</span> <br>
+        <button onclick="bees()">
+          <input id="bees-amount" type="number" placeholder="# of Bee Hives"/>
+          <input id="bees-output" placeholder="Output" readonly/> <br>
+          <input id="bees-honey" type="checkbox">Honey</input>
+          <input id="bees-wax" type="checkbox">Wax</input>
+        </button> <br><br>
+        <span>Vintner</span> <br>
+        <button onclick="vintner()">
+          <input id="vines-amount" type="number" placeholder="# of Grapevines"/>
+          <input id="vines-output" placeholder="Output" readonly/> <br>
+          <input id="vines-bees" type="checkbox">Neighbor Bees</input>
+        </button>
+      </div> <br>
+      <div class="div">
+        <span>Pence Conversion</span> <br>
+        <button onclick="pence()">
+          <input id="p-amount" type="number" placeholder="# of Pence"/>
+          <input id="p-output-pounds" placeholder="Output Pound(s)" readonly/>
+          <input id="p-output-shillings" placeholder="Output Shilling(s)" readonly/>
+          <input id="p-output-pence" placeholder="Output Pence" readonly/>
+        </button>
+      </div>
+    </div>
+    <div id="noaccess">
+      <h1>Oh No! You don't have access to this!</h1>
+      <h3>If this is an error, please get help.</h3>
+    </div>
+  </body>
+</html>
