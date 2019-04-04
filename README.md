@@ -1,0 +1,2 @@
+# sscal
+Special Calculator
