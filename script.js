@@ -3,6 +3,9 @@ function cow() {
   var people = parseInt(document.getElementById("cow-children").value) + 2;
   var total = 0;
   milk -= people * 20;
+  if (document.getElementById("cow-donate").checked === true) {
+    milk -= parseInt(document.getElementById("cow-donated").value);
+  }
   if (document.getElementById("cow-butter").checked === true) {
     if (milk >= 20) {
       total += 72;
