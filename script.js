@@ -18,11 +18,11 @@ function cow() {
       milk = 0;
     }
   }
-  document.getElementById("cow-output").value = total + "p";
+  document.getElementById("cow-output").value = total + " pence";
 }
 function sheep() {
   var sheeps = document.getElementById("sheep-amount").value;
-  document.getElementById("sheep-output").value = (sheeps * 9) + "p";
+  document.getElementById("sheep-output").value = (sheeps * 9) + " pence";
 }
 function bees() {
   var honey = parseInt(document.getElementById("bees-amount").value) * 3;
@@ -38,14 +38,14 @@ function bees() {
   if (document.getElementById("bees-wax").checked === true) {
     total += wax;
   }
-  document.getElementById("bees-output").value = total + "p";
+  document.getElementById("bees-output").value = total + " pence";
 }
 function vintner() {
   var wine = parseInt(document.getElementById("vines-amount").value);
   if (document.getElementById("vines-bees").checked === true) {
     wine += Math.abs(wine / 2);
   }
-  document.getElementById("vines-output").value = (wine * 12) + "p";
+  document.getElementById("vines-output").value = (wine * 12) + " pence";
 }
 
 function pence() {
@@ -57,5 +57,11 @@ function pence() {
   document.getElementById("p-output-pence").value = (pence % 12) + " pence";
 }
 
-
+function conv() {
+  var pounds = parseInt(document.getElementById("conv-pound").value);
+  var shillings = parseInt(document.getElementById("conv-shilling").value);
+  var pence = parseInt(document.getElementById("conv-pence").value);
+  var total = (pounds * 240) + (shillings * 12) + pence;
+  document.getElementById("conv-output").value = total + " pence";
+}
 window.onload = function () {if(localStorage.getItem('dtuhattc')!=null){document.getElementById("access").style.display="block";document.getElementById("noaccess").style.display="none";}};
