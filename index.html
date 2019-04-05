@@ -9,10 +9,22 @@
     border-color: black;
     border-style: solid;
   }
+  button {
+    border: 2px solid black;
+    background-color: white;
+  }
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input {
+    border: none;
+    text-align: center;
+    outline: none;
+  }
   </style>
   <script src="script.js"></script>
   <body style="text-align: center;">
-    <div id="access" style="display: none">
+    <div id="access" style="display: block">
       <div class="div">
         <span>Cheese and Butter Making</span> <br>
         <button onclick="cow()">
@@ -49,7 +61,7 @@
           <input id="p-amount" type="number" placeholder="# of Pence"/>
           <input id="p-output-pounds" placeholder="Output Pound(s)" readonly/>
           <input id="p-output-shillings" placeholder="Output Shilling(s)" readonly/>
-          <input id="p-output-pence" placeholder="Output Pence" readonly/>
+          <input id="p-output-pence" placeholder="Output" readonly/>
         </button> <br><br>
         <span>To Pence Conversion</span> <br>
         <button onclick="conv()">
@@ -60,7 +72,7 @@
         </button>
       </div>
     </div>
-    <div id="noaccess">
+    <div id="noaccess" style="display: none">
       <h1>Oh No! You don't have access to this!</h1>
       <h3>If you should have access, re-input the code you recieved.</h3>
     </div>
