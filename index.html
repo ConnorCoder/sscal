@@ -22,9 +22,8 @@
     outline: none;
   }
   </style>
-  <script src="script.js"></script>
   <body style="text-align: center;">
-    <div id="access" style="display: none">
+    <div id="access" style="display: block">
       <div class="div">
         <span>Cheese and Butter Making</span> <br>
         <button onclick="cow()">
@@ -69,15 +68,13 @@
           <input id="conv-shilling" type="number" placeholder="# of Shillings"/>
           <input id="conv-pence" type="number" placeholder="# of Pence"/>
           <input id="conv-output" placeholder="Output" readonly/>
+        </button> <br><br>
+        <span>Pence to Dollars</span> <br>
+        <button onclick="todollar()">
+          <input id="pence" type="number" placeholder="# of Pence"/>
+          <input id="pencedone" placeholder="Output" readonly/>
         </button>
       </div>
-    </div>
-    <div id="noaccess">
-      <h1>Oh No! You don't have Access!</h1>
-      <h3>If you should have access, re-input the code you recieved.</h3>
-      <h3>If you would like to have access, please visit Connor.</h3>
-      <h4>-------------------------------------------------------------</h4>
-      <h5>This site is to calculate profits and conversions easily.</h5>
     </div>
   </body>
 </html>
