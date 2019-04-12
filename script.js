@@ -67,4 +67,34 @@ function conv() {
   var total = (pounds * 240) + (shillings * 12) + pence;
   document.getElementById("conv-output").value = total + " pence";
 }
-window.onload = function () {if(localStorage.getItem('dtuhattc')!=null){document.getElementById("access").style.display="block";document.getElementById("noaccess").style.display="none";}};
+
+function todollar() {
+  var pence = parseInt(document.getElementById("pence").value);
+  var total = 0;
+  var twofifty = (pence - (pence % 250)) / 250;
+  if (twofifty > 0) {
+    for (i=0;i<4;i++) {
+      if (twofifty > 0) {
+        twofifty -= 1;
+        total += 250000;
+      }
+    }
+  }
+  if (twofifty > 0) {
+    for (i=0;i<20;i++) {
+      if (twofifty > 0) {
+        twofifty -= 1;
+        total += 100000;
+      }
+    }
+  }
+  if (twofifty > 0) {
+    for (i=0;i<400;i++) {
+      if (twofifty > 0) {
+        twofifty -= 1;
+        total += 25000;
+      }
+    }
+  }
+  document.getElementById("pencedone").value = "$" + total;
+}
