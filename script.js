@@ -69,31 +69,31 @@ function conv() {
 }
 
 function todollar() {
-  var pence = parseInt(document.getElementById("pence").value);
+  var A1 = parseInt(document.getElementById("pence").value);
   var total = 0;
-  var twofifty = (pence - (pence % 250)) / 250;
-  if (twofifty > 0) {
-    for (i=0;i<4;i++) {
-      if (twofifty > 0) {
-        twofifty -= 1;
-        total += 250000;
+  if (A1 < 250) {
+    total = 0;
+  }else {
+    if (A1 > 1000) {
+      if (A1 > 50000) {
+        if (A1 <= 850000) {
+          total = (((A1 - (A1 % 250)) / 250) - (50000 / 250)) * 1000 + 3340000;
+        }else {
+          if (A1 > 25000000) {
+            if (A1 > 100000000) {
+              total = (12489000 + ((((A1 / 250) - (25000000 / 250))) * 3.25));
+            }else {
+              total = (((A1 - (A1 % 250)) / 250) -(850000 / 250)) * 15 + 6540000;
+            }
+          }else {
+            total = 6540000 + (((A1 / 250) - (850000 / 250) / 250) * 15);
+          }
+        }
+      }else {
+        total = (((A1 - (A1 % 250)) / 250) -4) * 15000 + 400000;
       }
-    }
-  }
-  if (twofifty > 0) {
-    for (i=0;i<20;i++) {
-      if (twofifty > 0) {
-        twofifty -= 1;
-        total += 100000;
-      }
-    }
-  }
-  if (twofifty > 0) {
-    for (i=0;i<400;i++) {
-      if (twofifty > 0) {
-        twofifty -= 1;
-        total += 25000;
-      }
+    }else {
+      total = (A1 - (A1 % 250)) / 250 * 100000;
     }
   }
   document.getElementById("pencedone").value = "$" + total;
