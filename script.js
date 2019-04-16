@@ -96,5 +96,5 @@ function todollar() {
       total = (A1 - (A1 % 250)) / 250 * 100000;
     }
   }
-  document.getElementById("pencedone").value = "$" + total;
+  document.getElementById("pencedone").value = "$" + Math.round(total);
 }
