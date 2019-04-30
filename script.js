@@ -98,3 +98,35 @@ function todollar() {
   }
   document.getElementById("pencedone").value = "$" + Math.round(total);
 }
+
+function topence() {
+  var value = 0;
+  var x = document.getElementById('fakedollars').value;
+  var m = (x - (x % 100000)) / 100000;
+  if (x <= 100000) {
+    value = 0;
+  }else {
+    if (x > 400000) {
+      if (x > 3340000) {
+        if (x <= 6540000) {
+          value = (((x - 3340000) / 1000) + (50000 / 250)) * 250;
+        }else {
+          if (x > 8039796) {
+            if (x > 12489000) {
+              value = (((14114000 - 12489000) / 3.25) + (25000000 / 250)) * 250;
+            }else {
+              value = (((x - 6540000) / 15) + (850000 / 250)) * 250;
+            }
+          }else {
+            value = (((x - 6540000) / 15) + 13.6) * 250;
+          }
+        }
+      }else {
+        value = (((x - 400000) / 15000) + 4) * 250;
+      }
+    }else {
+      value = ((x / 100000) * 250);
+    }
+  }
+  document.getElementById('fd-done').value = value;
+}
