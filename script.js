@@ -1,3 +1,15 @@
+function show(x) {
+  let g = ["cows", "shep", "bees", "vint", "pnce", "dllr"];
+  console.log(g);
+  for(let y=0;y<g.length;y++) {
+    console.log(g[y]);
+    document.getElementById(g[y]).style.display = null;
+    document.getElementById(g[y] + "7").style.background = null;
+  }
+  document.getElementById(x).style.display = "block";
+  document.getElementById(x + "7").style.background = "#ff5555";
+}
+
 function cow() {
   var milk = parseInt(document.getElementById("cow-amount").value) * 120;
   var people = parseInt(document.getElementById("cow-children").value) + 2;
@@ -47,6 +59,9 @@ function vintner() {
   var wine = parseInt(document.getElementById("vines-amount").value);
   if (document.getElementById("vines-bees").checked === true) {
     wine += Math.abs(wine / 2);
+  }
+  if(wine.toString() === "NaN") {
+    wine = 0;
   }
   document.getElementById("vines-output").value = (wine * 12) + " pence";
 }

@@ -5,81 +5,158 @@
     <script src="script.js"></script>
   </head>
   <style>
-  .div {
-    border-width: 5px;
-    border-color: black;
-    border-style: solid;
-  }
-  button {
-    border: 2px solid black;
-    background-color: white;
-  }
-  input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-  input {
-    border: none;
-    text-align: center;
-    outline: none;
-  }
+    * {
+      margin: auto;
+    }
+    button {
+      border: 2px solid black;
+      background-color: white;
+    }
+    input[type=number]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    h4 {
+      font-family: Arial;
+      color: #ddd;
+      position: fixed;
+      bottom: 0px;
+      left: calc((100vw - 259.56px) / 2);
+    }
+    input {
+      border: none;
+      text-align: center;
+      outline: none;
+    }
+    #icons button {
+      width: 15vw;
+      height: 15vw;
+      margin: 0.1vw;
+      font-size: 1.4vw;
+      font-family: Arial;
+    }
+    #icons button:hover {
+      background: #55ff55;
+    }
+    #icons {
+      margin-bottom: 0.2vw;
+    }
+    .c {
+      display: none;
+      width: 93vw;
+      padding-bottom: 10px;
+      border: black solid 2px;
+    }
+    .c input[type=number], .c input[readonly] {
+      width: 10vw;
+      height: 5vw;
+      font-size: 1.5vw;
+      border: black solid 2px;
+    }
+    .c span {
+      font-size: 2vw;
+      font-family: Arial;
+    }
+    .c input[type=checkbox] {
+      zoom: 2;
+    }
+    .c input[type=number]:invalid {
+      background: #ff5555;
+    }
+    .c input[type=number]:invalid::placeholder, .c input[readonly]::placeholder {
+      color: black;
+    }
+    .ctext {
+      font-size: 110%;
+      display: inline;
+    }
+    .c input[readonly] {
+      background: #55ff55;
+    }
+    .reload {
+      color: #5555ff;
+    }
   </style>
   <body style="text-align: center;">
-    <div id="access" style="display: block">
-      <div class="div">
-        <span>Cheese and Butter Making</span> <br>
-        <button onclick="cow()">
-          <input id="cow-amount" type="number" placeholder="# of Cows"/>
-          <input id="cow-children" type="number" placeholder="# of Children"/>
-          <input id="cow-donated" type="number" placeholder="Donated Milk"/>
-          <input id="cow-output" placeholder="Output" readonly/> <br>
-          <input id="cow-butter" type="checkbox">Butter</input>
-          <input id="cow-cheese" type="checkbox">Cheese</input>
-          <input id="cow-donate" type="checkbox">Donated Milk</input>
-        </button> <br><br>
-          <span>Sheep</span> <br>
-          <button onclick="sheep()">
-          <input id="sheep-amount" type="number" placeholder="# of Sheep"/>
-          <input id="sheep-output" placeholder="Output" readonly/>
-        </button> <br><br>
-        <span>Bees</span> <br>
-        <button onclick="bees()">
-          <input id="bees-amount" type="number" placeholder="# of Bee Hives"/>
-          <input id="bees-output" placeholder="Output" readonly/> <br>
-          <input id="bees-honey" type="checkbox">Honey</input>
-          <input id="bees-wax" type="checkbox">Wax</input>
-        </button> <br><br>
-        <span>Vintner</span> <br>
-        <button onclick="vintner()">
-          <input id="vines-amount" type="number" placeholder="# of Grapevines"/>
-          <input id="vines-output" placeholder="Output" readonly/> <br>
-          <input id="vines-bees" type="checkbox">Neighbor Bees</input>
-        </button>
-      </div> <br>
-      <div class="div">
-        <span>Pence Conversion</span> <br>
-        <button onclick="pence()">
-          <input id="p-amount" type="number" placeholder="# of Pence"/>
-          <input id="p-output-pounds" placeholder="Output Pound(s)" readonly/>
-          <input id="p-output-shillings" placeholder="Output Shilling(s)" readonly/>
-          <input id="p-output-pence" placeholder="Output" readonly/>
-        </button> <br><br>
-        <span>To Pence Conversion</span> <br>
-        <button onclick="conv()">
-          <input id="conv-pound" type="number" placeholder="# of Pounds"/>
-          <input id="conv-shilling" type="number" placeholder="# of Shillings"/>
-          <input id="conv-pence" type="number" placeholder="# of Pence"/>
-          <input id="conv-output" placeholder="Output" readonly/>
-        </button> <br><br>
-        <span>Pence to Fake Dollars</span> <br>
-        <button onclick="todollar()">
-          <input id="pence" type="number" placeholder="# of Pence"/>
-          <input id="pencedone" placeholder="Output" readonly/>
-        </button> <br><br>
-        <span>Fake Dollars to Pence (Within 250 Pence)</span> <br>
-        <button onclick="topence()">
-          <input id="fakedollars" type="number" placeholder="# of Fake Dollars"/>
-          <input id="fd-done" placeholder="Output" readonly/>
-      </div>
+    <div id="icons">
+      <button id="cows7" onclick="show('cows')">Cows</button>
+      <button id="shep7" onclick="show('shep')">Sheep</button>
+      <button id="bees7" onclick="show('bees')">Bees</button>
+      <button id="vint7" onclick="show('vint')">Vintner</button>
+      <button id="pnce7" onclick="show('pnce')">Pence Conversion</button>
+      <button id="dllr7" onclick="show('dllr')">Dollar Conversions</button>
     </div>
+    <div class="c" id="cows">
+      <span>Cheese and Butter Making</span> <br>
+      <button onclick="cow()">
+        <input id="cow-amount" type="number" placeholder="# of Cows" required="required"/>
+        <input id="cow-children" type="number" placeholder="# of Children" required="required"/>
+        <input id="cow-donated" type="number" placeholder="Donated Milk" required="required"/>
+        <input id="cow-output" placeholder="Output" readonly/> <br>
+        <span class="ctext"><input id="cow-butter" type="checkbox">Butter</input></span>
+        <span class="ctext"><input id="cow-cheese" type="checkbox">Cheese</input></span>
+        <span class="ctext"><input id="cow-donate" type="checkbox">Donated Milk</input></span>
+        <br><br><span class="reload">Reload Output</span>
+      </button>
+    </div>
+    <div class="c" id="shep">
+      <span>Sheep</span> <br>
+      <button onclick="sheep()">
+      <input id="sheep-amount" type="number" placeholder="# of Sheep" required="required"/>
+      <input id="sheep-output" placeholder="Output" readonly/>
+      <br><br><span class="reload">Reload Output</span>
+    </button>
+    </div>
+    <div class="c" id="bees">
+      <span>Bees</span> <br>
+      <button onclick="bees()">
+        <input id="bees-amount" type="number" placeholder="# of Bee Hives" required="required"/>
+        <input id="bees-output" placeholder="Output" readonly/> <br>
+        <span class="ctext"><input id="bees-honey" type="checkbox">Honey</input></span>
+        <span class="ctext"><input id="bees-wax" type="checkbox">Wax</input></span>
+        <br><br><span class="reload">Reload Output</span>
+      </button>
+    </div>
+    <div class="c" id="vint">
+      <span>Vintner</span> <br>
+      <button onclick="vintner()">
+        <input id="vines-amount" type="number" placeholder="# of Grapevines" required="required"/>
+        <input id="vines-output" placeholder="Output" readonly/> <br>
+        <span class="ctext"><input id="vines-bees" type="checkbox">Neighbor Bees</input></span>
+        <br><br><span class="reload">Reload Output</span>
+      </button>
+    </div>
+    <div class="c" id="pnce">
+      <span>Pence To Pound/Shilling/Pence Conversion</span> <br>
+      <button onclick="pence()">
+        <input id="p-amount" type="number" placeholder="# of Pence" required="required"/>
+        <input id="p-output-pounds" placeholder="Output Pounds" readonly/>
+        <input id="p-output-shillings" placeholder="Output Shillings" readonly/>
+        <input id="p-output-pence" placeholder="Output Pence" readonly/>
+        <br><br><span class="reload">Reload Output</span>
+      </button> <br><br>
+      <span>Pound/Shilling/Pence To Pence Conversion</span> <br>
+      <button onclick="conv()">
+        <input id="conv-pound" type="number" placeholder="# of Pounds" required="required"/>
+        <input id="conv-shilling" type="number" placeholder="# of Shillings" required="required"/>
+        <input id="conv-pence" type="number" placeholder="# of Pence" required="required"/>
+        <input id="conv-output" placeholder="Output" readonly/>
+        <br><br><span class="reload">Reload Output</span>
+      </button>
+    </div>
+    <div class="c" id="dllr">
+      <span>Pence to Fake Dollars</span> <br>
+      <button onclick="todollar()">
+        <input id="pence" type="number" placeholder="# of Pence" required="required"/>
+        <input id="pencedone" placeholder="Output" readonly/>
+        <br><br><span class="reload">Reload Output</span>
+      </button> <br><br>
+      <span>Fake Dollars to Pence (Within 250 Pence)</span> <br>
+      <button onclick="topence()">
+        <input id="fakedollars" type="number" placeholder="# of Fake Dollars" required="required"/>
+        <input id="fd-done" placeholder="Output" readonly/>
+        <br><br><span class="reload">Reload Output</span>
+      </button>
+    </div>
+    <h4>Made by ConnorCoder for Mr. Hull</h4>
   </body>
 </html>
